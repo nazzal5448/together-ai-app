@@ -12,7 +12,7 @@ def generate(prompts:list[str]):
     json_responses = []
     for i, prompt in enumerate(prompts):
         if i == 0:
-            WIDTH = 1080
+            WIDTH = 1072
             HEIGHT = 1072
         else:
             WIDTH = 1200
