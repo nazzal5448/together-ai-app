@@ -13,11 +13,11 @@ def generate(prompts:list[str]):
     for i, prompt in enumerate(prompts):
         if i == 0:
             WIDTH = 1080
-            HEIGHT = 1080
+            HEIGHT = 1072
         else:
             WIDTH = 1200
-            HEIGHT = 630
-            
+            HEIGHT = 624
+
         response = client.images.generate(
             prompt=prompt,
             model="black-forest-labs/FLUX.1-schnell-Free",
