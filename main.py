@@ -7,15 +7,22 @@ api = os.getenv("TOGETHER_API_KEY")
 
 
 def generate(prompts:list[str]):
-
+    
     client = Together(api_key=api)
     json_responses = []
-    for prompt in prompts:
+    for i, prompt in enumerate(prompts):
+        if i == 0:
+            WIDTH = 1080
+            HEIGHT = 1080
+        else:
+            WIDTH = 1200
+            HEIGHT = 630
+            
         response = client.images.generate(
             prompt=prompt,
             model="black-forest-labs/FLUX.1-schnell-Free",
-            width=1280,
-            height=720,
+            width=WIDTH,
+            height=HEIGHT,
             steps=4,
             n=1,
             response_format="b64_json",

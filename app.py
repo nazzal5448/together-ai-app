@@ -22,7 +22,7 @@ app.add_middleware(
 
 # Request model
 class ImageGenerationRequest(BaseModel):
-    prompts: List[str] 
+    prompts: List[str]
 
 @app.get("/")
 def home():
@@ -31,7 +31,7 @@ def home():
 @app.post("/generate-images")
 def generate_images(request: ImageGenerationRequest):
     try:
-        if not request.prompts or len(request.prompts) < 1:
+        if not request.prompts or len(request.prompts) != 2:
             raise ValueError("At least one prompt is required.")
 
         images_b64 = generate(request.prompts)
